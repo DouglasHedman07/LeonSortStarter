@@ -13,3 +13,7 @@ public class CycleSort {
         System.out.println(java.util.Arrays.toString(array1));
         System.out.println(java.util.Arrays.toString(array2));
     }
+    void cycleSort(int[] array)
+    {
+        for (int currentIndex = 0; currentIndex < array.length - 1; currentIndex++)
+        {
