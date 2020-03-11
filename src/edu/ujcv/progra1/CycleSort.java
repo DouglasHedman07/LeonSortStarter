@@ -17,3 +17,8 @@ public class CycleSort {
     {
         for (int currentIndex = 0; currentIndex < array.length - 1; currentIndex++)
         {
+            int item = array[currentIndex];
+            int currentIndexCopy = currentIndex;
+
+
+        }
