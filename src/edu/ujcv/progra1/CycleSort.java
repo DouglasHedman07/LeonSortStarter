@@ -19,6 +19,7 @@ public class CycleSort {
         for (int currentIndex = 0; currentIndex < array.length - 1; currentIndex++)
         {
             int item = array[currentIndex];
+
             int currentIndexCopy = currentIndex;
 
             for (int i = currentIndex + 1; i < array.length; i++)
@@ -26,14 +27,28 @@ public class CycleSort {
                     currentIndexCopy++;
             if (currentIndexCopy == currentIndex)
                 continue;
+
             while (item == array[currentIndexCopy])
                 currentIndexCopy++;
-
             int temp = array[currentIndexCopy];
             array[currentIndexCopy] = item;
             item = temp;
 
-            while (currentIndexCopy != currentIndex)
-            {
+            while (currentIndexCopy != currentIndex) {
 
                 currentIndexCopy = currentIndex;
+
+                for (int i = currentIndex + 1; i < array.length; i++)
+                    if (array[i] < item)
+                        currentIndexCopy++;
+
+                while (item == array[currentIndexCopy])
+                    currentIndexCopy++;
+
+                temp = array[currentIndexCopy];
+                array[currentIndexCopy] = item;
+                item = temp;
+            }
+        }
+    }
+}
