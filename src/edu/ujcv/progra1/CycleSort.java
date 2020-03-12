@@ -29,3 +29,11 @@ public class CycleSort {
             while (item == array[currentIndexCopy])
                 currentIndexCopy++;
 
+            int temp = array[currentIndexCopy];
+            array[currentIndexCopy] = item;
+            item = temp;
+
+            while (currentIndexCopy != currentIndex)
+            {
+
+                currentIndexCopy = currentIndex;
