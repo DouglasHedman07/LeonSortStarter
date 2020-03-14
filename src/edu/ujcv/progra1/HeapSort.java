@@ -15,7 +15,6 @@ public class HeapSort implements SortTester {
 
     public static int[] heapSort(int[] array) {
 
-        // cambiar priority queue por su propia implementacion!!
         PriorityQueue <Integer> queue = new PriorityQueue<>();
         for (Integer i: array) {
             queue.add(i);
