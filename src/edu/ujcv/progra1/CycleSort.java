@@ -1,53 +1,58 @@
 package edu.ujcv.progra1;
 
-public class CycleSort {
-    public static void main(String[] args)
-    {
-        int[] array1 = {12, 11, 15, 10, 9, 1, 2, 3, 13, 14, 4, 5, 6, 7, 8};
-        int[] array2 = {2, 1, 5, 2, 9, 1, 2, 3, 3, 4, 4, 5, 6, 7, 8};
+public class CycleSort implements SortTester {
+    @Override
+    public long sort(int[] array) {
+        long start = System.currentTimeMillis();
+        cycleSort(array);
 
-        CycleSort sorter = new CycleSort();
-        sorter.cycleSort(array1);
-        sorter.cycleSort(array2);
+        long end = System.currentTimeMillis();
 
-        System.out.println(java.util.Arrays.toString(array1));
-        System.out.println(java.util.Arrays.toString(array2));
+        return end - start;
     }
 
-    void cycleSort(int[] array)
-    {
-        for (int currentIndex = 0; currentIndex < array.length - 1; currentIndex++)
-        {
-            int item = array[currentIndex];
+    public void cycleSort(int[] array) {
+        int pos;
+        int item;
+        int temp;
 
-            int currentIndexCopy = currentIndex;
+        for (int cycleStart = 0; cycleStart < array.length - 1; cycleStart++) {
+            item = array[cycleStart];
+            pos = cycleStart;
 
-            for (int i = currentIndex + 1; i < array.length; i++)
+            for (int i = cycleStart + 1; i < array.length; i++) {
                 if (array[i] < item)
-                    currentIndexCopy++;
-            if (currentIndexCopy == currentIndex)
+                    pos++;
+            }
+
+            if (pos == cycleStart)
                 continue;
 
-            while (item == array[currentIndexCopy])
-                currentIndexCopy++;
-            int temp = array[currentIndexCopy];
-            array[currentIndexCopy] = item;
-            item = temp;
+            while (item == array[pos])
+                pos++;
 
-            while (currentIndexCopy != currentIndex) {
-
-                currentIndexCopy = currentIndex;
-
-                for (int i = currentIndex + 1; i < array.length; i++)
-                    if (array[i] < item)
-                        currentIndexCopy++;
-
-                while (item == array[currentIndexCopy])
-                    currentIndexCopy++;
-
-                temp = array[currentIndexCopy];
-                array[currentIndexCopy] = item;
+            if (item != array[pos]) {
+                temp = array[pos];
+                array[pos] = item;
                 item = temp;
+            }
+
+            while (pos != cycleStart) {
+                pos = cycleStart;
+
+                for (int i = cycleStart + 1; i < array.length; i++) {
+                    if (array[i] < item)
+                        pos++;
+                }
+
+                while (item == array[pos])
+                    pos++;
+
+                if (item != array[pos]) {
+                    temp = array[pos];
+                    array[pos] = item;
+                    item = temp;
+                }
             }
         }
     }
