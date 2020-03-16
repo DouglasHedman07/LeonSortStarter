@@ -3,10 +3,10 @@ package edu.ujcv.progra1;
 public class CycleSort implements SortTester {
     @Override
     public long sort(int[] array) {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         cycleSort(array);
 
-        long end = System.currentTimeMillis();
+        long end = System.nanoTime();
 
         return end - start;
     }
