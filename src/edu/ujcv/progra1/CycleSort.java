@@ -5,9 +5,7 @@ public class CycleSort implements SortTester {
     public long sort(int[] array) {
         long start = System.nanoTime();
         cycleSort(array);
-
         long end = System.nanoTime();
-
         return end - start;
     }
 

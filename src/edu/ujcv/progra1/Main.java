@@ -7,8 +7,8 @@ public class Main {
         int[] elementos ={0,42,1,23,99,91,71,42,39,17};
 
 
-//        CycleSort s = new CycleSort();
-//        s.cycleSort(elementos);
+        CycleSort s = new CycleSort();
+        s.cycleSort(elementos);
 
 //        MergeSort s = new MergeSort();
 //        s.mergeSort(elementos);
@@ -18,12 +18,13 @@ public class Main {
 
 //        BubleSort s = new BubleSort();
 //        s.bubleSort(elementos);
-        
 
-        for (int elemento : elementos) {
-            System.out.println(elemento);
+
+        for (int i = 0; i < elementos.length; i++) {
+            System.out.println(elementos[i]);
         }
 
+        elementos = new int[]{3,2,4,5,6,7,9,9,10,3,5};
         System.out.println("\n\nTarda "+ s.sort(elementos)+ " Nanosegundos");
     }
 }
