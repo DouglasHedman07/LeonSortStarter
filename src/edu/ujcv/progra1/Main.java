@@ -22,8 +22,8 @@ public class Main {
         HeapSort h = new HeapSort();
         h.heapSort(Arreglo);
 
-        BubleSort b = new BubleSort();
-        BubleSort.bubleSort(Arreglo);
+        BubbleSort b = new BubbleSort();
+        BubbleSort.bubbleSort(Arreglo);
 
 
         System.out.println("-------------------PROYECTO ESTRUCTURAS DE DATOS---------------------------");
@@ -38,7 +38,7 @@ public class Main {
         System.out.println("\n\nEl Algoritmo Cycle Sort tardó: " + c.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
         System.out.println("El Algoritmo Merge Sort tardó: " + m.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
         System.out.println("El Algoritmo Heap Sort tardó: " + h.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
-        System.out.println("El Algoritmo Buble Sort tardó: " + b.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
+        System.out.println("El Algoritmo Bubble Sort tardó: " + b.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
 
     }
 }
