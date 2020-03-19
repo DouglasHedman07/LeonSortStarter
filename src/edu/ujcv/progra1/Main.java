@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        int[] Arreglo = new int[15];
+        int[] Arreglo = new int[10];
 
         for (int i = 0; i < Arreglo.length; i++) {
             int temp = (int) (Math.random() * 10000) + 1;
@@ -20,10 +20,13 @@ public class Main {
         MergeSort.mergeSort(Arreglo);
 
         HeapSort h = new HeapSort();
-        h.heapSort(Arreglo);
+        HeapSort.heapSort(Arreglo);
 
         BubbleSort b = new BubbleSort();
         BubbleSort.bubbleSort(Arreglo);
+
+        ShuffleSort s = new ShuffleSort();
+        ShuffleSort.shuffleSort(Arreglo);
 
 
         System.out.println("-------------------PROYECTO ESTRUCTURAS DE DATOS---------------------------");
@@ -39,6 +42,7 @@ public class Main {
         System.out.println("El Algoritmo Merge Sort tardó: " + m.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
         System.out.println("El Algoritmo Heap Sort tardó: " + h.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
         System.out.println("El Algoritmo Bubble Sort tardó: " + b.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
+        System.out.println("El Algoritmo Shuffle Sort tardó: " + s.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
 
     }
 }
