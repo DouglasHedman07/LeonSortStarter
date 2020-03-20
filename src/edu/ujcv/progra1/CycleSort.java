@@ -22,13 +22,10 @@ public class CycleSort implements SortTester {
                 if (array[i] < item)
                     pos++;
             }
-
             if (pos == cycleStart)
                 continue;
-
             while (item == array[pos])
                 pos++;
-
             if (item != array[pos]) {
                 temp = array[pos];
                 array[pos] = item;
@@ -42,10 +39,8 @@ public class CycleSort implements SortTester {
                     if (array[i] < item)
                         pos++;
                 }
-
                 while (item == array[pos])
                     pos++;
-
                 if (item != array[pos]) {
                     temp = array[pos];
                     array[pos] = item;
