@@ -9,7 +9,7 @@ public class HeapSort implements SortTester {
         long end = System.nanoTime();
         return end - start;
     }
-    public static int[] heapSort(int[] arr) {
+    static void heapSort(int[] arr) {
 
         armarheap(arr);
         int sizeOfHeap = arr.length - 1;
@@ -18,9 +18,8 @@ public class HeapSort implements SortTester {
             sizeOfHeap = sizeOfHeap - 1;
             heapify(arr, 0, sizeOfHeap);
         }
-        return arr;
     }
-    public static void heapify(int[] arr, int i, int size) {
+    private static void heapify(int[] arr, int i, int size) {
         int left = 2 * i + 1;
         int right = 2 * i + 2;
         int max;
@@ -37,12 +36,12 @@ public class HeapSort implements SortTester {
             heapify(arr, max, size);
         }
     }
-    public static void armarheap(int[] arr) {
+    private static void armarheap(int[] arr) {
         for (int i = (arr.length - 1) / 2; i >= 0; i--) {
             heapify(arr, i, arr.length - 1);
         }
     }
-    public static void intercambiar(int[] arr, int i, int j) {
+    private static void intercambiar(int[] arr, int i, int j) {
         int t = arr[i];
         arr[i] = arr[j];
         arr[j] = t;

@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        int[] Arreglo = new int[15];
+        int[] Arreglo = new int[10000];
 
         for (int i = 0; i < Arreglo.length; i++) {
             int temp = (int) (Math.random() * 10000) + 1;
@@ -25,8 +25,8 @@ public class Main {
         BubbleSort b = new BubbleSort();
         BubbleSort.bubbleSort(Arreglo);
 
-        ShuffleSort s = new ShuffleSort();
-        ShuffleSort.shuffleSort(Arreglo);
+        //ShuffleSort s = new ShuffleSort();
+        //ShuffleSort.shuffleSort(Arreglo);
 
 
         System.out.println("-------------------PROYECTO ESTRUCTURAS DE DATOS---------------------------");
@@ -42,15 +42,15 @@ public class Main {
         System.out.println("El Algoritmo MergeSort tardó: " + m.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
         System.out.println("El Algoritmo HeapSort tardó: " + h.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
         System.out.println("El Algoritmo BubbleSort tardó: " + b.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
-        System.out.println("El Algoritmo ShuffleSort tardó: " + s.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
+        //System.out.println("El Algoritmo ShuffleSort tardó: " + s.sort(Arreglo) + " Nanosegundos en ordenar el Arreglo.");
 
         System.out.println("\n\n--------------------PROMEDIO DE CADA ALGORTIMO-----------------------------");
 
-        int [] Arreglo1 = new int[1000];
-        int [] Arreglo2 = new int[1000];
-        int [] Arreglo3 = new int[1000];
-        int [] Arreglo4 = new int[1000];
-        int [] Arreglo5 = new int[1000];
+        int [] Arreglo1 = new int[100];
+        int [] Arreglo2 = new int[100];
+        int [] Arreglo3 = new int[100];
+        int [] Arreglo4 = new int[100];
+        int [] Arreglo5 = new int[100];
 
         for (int i = 0; i < Arreglo1.length; i++) {
             int temp = (int) (Math.random() * 10000) + 1;

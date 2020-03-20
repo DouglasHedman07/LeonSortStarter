@@ -12,7 +12,7 @@ public class ShuffleSort implements SortTester {
         return end - start;
     }
 
-    public static int[] shuffleSort(int[] array) {
+    private static void shuffleSort(int[] array) {
         int [] temp = new int[array.length];
         ArrayList<Integer> numeros = new ArrayList<>();
         while (true) {
@@ -39,6 +39,5 @@ public class ShuffleSort implements SortTester {
                 break;
             }
         }
-        return temp;
     }
 }

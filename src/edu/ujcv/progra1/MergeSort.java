@@ -9,7 +9,7 @@ public class MergeSort implements SortTester{
         return end - start;
     }
 
-    public  static int[] mergeSort(int[] arr){
+    static int[] mergeSort(int[] arr){
         if(arr.length <= 1){
             return arr;
         }
@@ -26,7 +26,7 @@ public class MergeSort implements SortTester{
         }
         return  merge(mergeSort(inferior), mergeSort(superior));
     }
-    public static int[] merge(int[] a, int[] b){
+    private static int[] merge(int[] a, int[] b){
         int[] retval = new int[a.length+ b.length];
         int i = 0;
         int j = 0;

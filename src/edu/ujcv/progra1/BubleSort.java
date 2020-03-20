@@ -9,7 +9,7 @@ class BubbleSort implements SortTester {
         return end - start;
     }
 
-    public static int[] bubbleSort(int[] arr) {
+    static void bubbleSort(int[] arr) {
 
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length; j++) {
@@ -20,6 +20,5 @@ class BubbleSort implements SortTester {
                 }
             }
         }
-        return arr;
     }
 }
