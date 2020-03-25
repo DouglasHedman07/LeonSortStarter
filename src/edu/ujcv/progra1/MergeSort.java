@@ -1,48 +1,50 @@
 package edu.ujcv.progra1;
-public class MergeSort implements SortTester{
 
+public class MergeSort implements SortTester{
     @Override
     public long sort(int[] array) {
-        long start = System.nanoTime();
+        long start = System.currentTimeMillis();
         mergeSort(array);
-        long end = System.nanoTime();
+        long end = System.currentTimeMillis();
         return end - start;
     }
+    public static int[] mergeSort(int[] a) {
+        int[] inf = new int [a.length/2];
+        int[] sup = new int [a.length - inf.length];
+        int k =0;
 
-    static int[] mergeSort(int[] arr){
-        if(arr.length <= 1){
-            return arr;
+        if(a.length <= 1){
+            return a;
         }
-
-        int medio = arr.length /2;
-        int[] inferior = new int[medio];
-        int[] superior = new int[arr.length - medio];
-        for (int i = 0; i < medio; i++) {
-            inferior[i] = arr[i];
+        for (int i = 0; i < inf.length; i++) {
+            inf [i] = a [k++];
         }
-
-        for (int i = 0; i < superior.length ; i++) {
-            superior[i] = arr[i + inferior.length];
+        for (int i = 0; i < sup.length; i++) {
+            sup[i]= a[k++];
         }
-        return  merge(mergeSort(inferior), mergeSort(superior));
+        return merge(mergeSort(inf),mergeSort(sup));
     }
-    private static int[] merge(int[] a, int[] b){
-        int[] retval = new int[a.length+ b.length];
-        int i = 0;
-        int j = 0;
-        int k = 0;
-        while (j < a.length && k < b.length ){
-            if(a[j] < b[k]){
-                retval[i++] = a[j++];
-            }else{
-                retval[i++] = b[k++];
+    public static int[] merge(int[] inf, int[] sup ){
+
+        int [] retval = new int [inf.length + sup.length];
+        int i = 0, j = 0, k = 0;
+
+        for (  ; j < inf.length && k < sup.length; i++) {
+            if (inf[j] < sup[k]) {
+                retval[i] = inf[j++];
+            }
+            else {
+                retval[i] = sup[k++];
             }
         }
-        while (j < a.length){
-            retval[i++] = a[j++];
-        }
-        while (k < b.length){
-            retval[i++] = b[k++];
+        if (j < inf.length){
+            for ( ; i < retval.length; i++) {
+                retval[i] = inf[j++];
+            }
+        }else if (k < sup.length){
+            for (; i < retval.length ; i++) {
+                retval[i] = sup[k++];
+            }
         }
         return retval;
     }

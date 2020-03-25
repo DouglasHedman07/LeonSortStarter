@@ -4,46 +4,41 @@ public class HeapSort implements SortTester {
 
     @Override
     public long sort(int[] array) {
-        long start = System.nanoTime();
+        long start = System.currentTimeMillis();
         heapSort(array);
-        long end = System.nanoTime();
+        long end = System.currentTimeMillis();
         return end - start;
     }
-    static void heapSort(int[] arr) {
+    public static void heapSort(int[] array) {
+        int n = array.length;
 
-        armarheap(arr);
-        int sizeOfHeap = arr.length - 1;
-        for (int i = sizeOfHeap; i > 0; i--) {
-            intercambiar(arr, 0, i);
-            sizeOfHeap = sizeOfHeap - 1;
-            heapify(arr, 0, sizeOfHeap);
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            Float(array, n, i);
+        }
+        for (int i = n - 1; i >= 0; i--) {
+            int temp = array[0];
+            array[0] = array[i];
+            array[i] = temp;
+            Float(array, i, 0);
         }
     }
-    private static void heapify(int[] arr, int i, int size) {
-        int left = 2 * i + 1;
-        int right = 2 * i + 2;
-        int max;
-        if (left <= size && arr[left] > arr[i]) {
-            max = left;
-        } else {
-            max = i;
+    public static void Float(int[] arr, int n, int i) {
+
+        int padre = i;
+        int hijoIzquierdo = i * 2 + 1;
+        int hijoDerecho = i * 2 + 2;
+
+        if (hijoIzquierdo < n && arr[hijoIzquierdo] > arr[padre]) {
+            padre = hijoIzquierdo;
         }
-        if (right <= size && arr[right] > arr[max]) {
-            max = right;
+        if (hijoDerecho < n && arr[hijoDerecho] > arr[padre]) {
+            padre = hijoDerecho;
         }
-        if (max != i) {
-            intercambiar(arr, i, max);
-            heapify(arr, max, size);
+        if (padre != i) {
+            int temp = arr[i];
+            arr[i] = arr[padre];
+            arr[padre] = temp;
+            Float(arr, n, padre);
         }
-    }
-    private static void armarheap(int[] arr) {
-        for (int i = (arr.length - 1) / 2; i >= 0; i--) {
-            heapify(arr, i, arr.length - 1);
-        }
-    }
-    private static void intercambiar(int[] arr, int i, int j) {
-        int t = arr[i];
-        arr[i] = arr[j];
-        arr[j] = t;
     }
 }
