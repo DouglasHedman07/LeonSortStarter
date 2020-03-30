@@ -13,35 +13,36 @@ public class HeapSort implements SortTester {
 
         int n = array.length;
         for (int i = n/2-1; i >= 0; i--) {
-            Flotar(array, n, i);
+            Float(array, n, i);
         }
-        Hundir(array,n);
+        Sink(array,n);
     }
-    public static void Flotar(int[] arr, int n, int i){
+    public static void Float(int[] arr, int n, int i){
+        //Metodo Flotar con sus respectivos hijos y padre
+        int father = i;
+        int leftSon = i*2+1;
+        int rightSon = i*2+2;
 
-        int padre = i;
-        int hijoIzquierdo = i*2+1;
-        int hijoDerecho = i*2+2;
-
-        if (hijoIzquierdo < n && arr[hijoIzquierdo]>arr[padre]){
-            padre = hijoIzquierdo;
+        if (leftSon < n && arr[leftSon]>arr[father]){
+            father = leftSon;
         }
-        if (hijoDerecho < n && arr[hijoDerecho]>arr[padre]){
-            padre = hijoDerecho;
+        if (rightSon < n && arr[rightSon]>arr[father]){
+            father = rightSon;
         }
-        if (padre != i){
+        if (father != i){
             int temp = arr[i];
-            arr[i] = arr[padre];
-            arr[padre] = temp;
-            Flotar(arr,n,padre);
+            arr[i] = arr[father];
+            arr[father] = temp;
+            Float(arr,n,father);
         }
     }
-    public static void Hundir(int[] array, int n){
+    public static void Sink(int[] array, int n){
+        //Metodo Hundir
         for (int i = n-1; i >=0; i--) {
             int temp = array[0];
             array[0] = array[i];
             array[i] = temp;
-            Flotar(array,i,0);
+            Float(array,i,0);
         }
     }
 }
